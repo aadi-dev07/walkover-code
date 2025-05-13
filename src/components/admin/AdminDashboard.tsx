@@ -6,32 +6,29 @@ import { AdminProblems } from "./AdminProblems";
 import { AdminStats } from "./AdminStats";
 
 export function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState("problems");
+  const [activeTab, setActiveTab] = useState("candidates");
 
   return (
     <div className="container py-8">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold">Admin Dashboard</h1>
         </div>
 
-        <Tabs defaultValue="problems" value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="problems">Problems</TabsTrigger>
+        <AdminStats />
+
+        <Tabs defaultValue="candidates" value={activeTab} onValueChange={setActiveTab}>
+          <TabsList className="mb-6">
             <TabsTrigger value="candidates">Candidates</TabsTrigger>
-            <TabsTrigger value="stats">Statistics</TabsTrigger>
+            <TabsTrigger value="problems">Problems</TabsTrigger>
           </TabsList>
-          
-          <TabsContent value="problems">
-            <AdminProblems />
-          </TabsContent>
           
           <TabsContent value="candidates">
             <AdminCandidates />
           </TabsContent>
           
-          <TabsContent value="stats">
-            <AdminStats />
+          <TabsContent value="problems">
+            <AdminProblems />
           </TabsContent>
         </Tabs>
       </div>

@@ -1,45 +1,26 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 export function AdminStats() {
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-semibold">Platform Statistics</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <Card className="p-6">
+        <h3 className="text-xl font-semibold">Total Candidates</h3>
+        <p className="text-muted-foreground text-sm">Active candidates in the system</p>
+        <p className="text-5xl font-bold mt-4">5</p>
+      </Card>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Total Candidates</CardTitle>
-            <CardDescription>All time</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">246</div>
-            <p className="text-xs text-muted-foreground mt-1">+12% from last month</p>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Active Problems</CardTitle>
-            <CardDescription>Currently available</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">32</div>
-            <p className="text-xs text-muted-foreground mt-1">+3 new this week</p>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Completion Rate</CardTitle>
-            <CardDescription>Average</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">78%</div>
-            <p className="text-xs text-muted-foreground mt-1">+5% from previous quarter</p>
-          </CardContent>
-        </Card>
-      </div>
+      <Card className="p-6">
+        <h3 className="text-xl font-semibold">Evaluated Submissions</h3>
+        <p className="text-muted-foreground text-sm">Completed evaluations</p>
+        <p className="text-5xl font-bold mt-4">3</p>
+      </Card>
+      
+      <Card className="p-6">
+        <h3 className="text-xl font-semibold">Average Score</h3>
+        <p className="text-muted-foreground text-sm">Across all evaluations</p>
+        <p className="text-5xl font-bold mt-4">84%</p>
+      </Card>
     </div>
   );
 }

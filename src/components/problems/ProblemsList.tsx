@@ -95,7 +95,7 @@ const getDifficultyColor = (difficulty: string) => {
 
 export function ProblemsList() {
   const [filter, setFilter] = useState("");
-  const [difficulty, setDifficulty] = useState("");
+  const [difficulty, setDifficulty] = useState("all");
 
   const filteredProblems = problems.filter(
     (problem) =>
@@ -104,7 +104,7 @@ export function ProblemsList() {
         problem.topics.some((topic) =>
           topic.toLowerCase().includes(filter.toLowerCase())
         )) &&
-      (difficulty === "" || problem.difficulty === difficulty)
+      (difficulty === "all" || problem.difficulty === difficulty)
   );
 
   return (
@@ -126,7 +126,7 @@ export function ProblemsList() {
             <SelectValue placeholder="Difficulty" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Difficulties</SelectItem>
+            <SelectItem value="all">All Difficulties</SelectItem>
             <SelectItem value="Easy">Easy</SelectItem>
             <SelectItem value="Medium">Medium</SelectItem>
             <SelectItem value="Hard">Hard</SelectItem>

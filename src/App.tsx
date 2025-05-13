@@ -8,6 +8,7 @@ import { MainLayout } from "./layouts/MainLayout";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Onboarding from "./pages/Onboarding";
 import Problems from "./pages/Problems";
 import ProblemView from "./pages/ProblemView";
 import AdminView from "./pages/AdminView";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/problems" element={<Problems />} />
             <Route path="/problem/:id" element={<ProblemView />} />
             <Route path="/admin" element={<AdminView />} />

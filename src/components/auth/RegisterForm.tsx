@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function RegisterForm() {
   const [name, setName] = useState("");
@@ -20,6 +20,7 @@ export function RegisterForm() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,10 +29,14 @@ export function RegisterForm() {
     // Simulate registration - would connect to auth system
     setTimeout(() => {
       setIsLoading(false);
+      
       toast({
         title: "Registration Successful",
         description: "Welcome to Walkover DSA Arena!",
       });
+      
+      // Redirect to onboarding after registration
+      navigate("/onboarding");
     }, 1500);
   };
 

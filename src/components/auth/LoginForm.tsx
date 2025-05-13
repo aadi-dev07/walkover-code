@@ -12,13 +12,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,10 +28,23 @@ export function LoginForm() {
     // Simulate login - would connect to auth system
     setTimeout(() => {
       setIsLoading(false);
+      
+      // Check if user has completed onboarding
+      const userRole = localStorage.getItem("userRole");
+      
       toast({
         title: "Login Successful",
         description: "Welcome back to Walkover DSA Arena!",
       });
+      
+      // If no role is set, redirect to onboarding
+      if (!userRole) {
+        navigate("/onboarding");
+      } else if (userRole === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/problems");
+      }
     }, 1500);
   };
 

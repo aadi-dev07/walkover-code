@@ -11,6 +11,8 @@ import Register from "./pages/Register";
 import Problems from "./pages/Problems";
 import ProblemView from "./pages/ProblemView";
 import AdminView from "./pages/AdminView";
+import Leaderboard from "./pages/Leaderboard";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ const App = () => (
             <Route path="/problems" element={<Problems />} />
             <Route path="/problem/:id" element={<ProblemView />} />
             <Route path="/admin" element={<AdminView />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/about" element={<About />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
